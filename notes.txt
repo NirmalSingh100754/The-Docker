@@ -1,0 +1,1 @@
+Docker packages the app and all its required dependencies into one container. This container can be moved to any system and it should run the same way everywhere.

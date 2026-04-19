@@ -6,3 +6,16 @@ properties of container:-
 2> Light Weight
 Docker Image:- Blueprint helps us create multiple containers.
 system resources are used by containers not by the image the relation between image and container is similar to relation between class and its object.
+docker run -it ubuntu :- this will run the ubuntu machine on the docker in interactive mode after pulling and downloading from docker hub.
+Docker commands:
+1. docker pull image_name
+2. docker images
+3. docker run image_name
+4. docker run -it image_name
+5. docker stop cont_name/cont_id
+6. docker start cont_name/cont_id
+7. env :- know all about the environment
+8. docker ps -a :- shows all containers available
+9. docker ps :- shows only running containers
+10. docker rmi image_name :- remove an image from docker
+11. docker rm cont_name :- remove or del container from docker

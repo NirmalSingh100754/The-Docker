@@ -42,8 +42,8 @@ every machine have 3 layers hardware -> host OS (kernel) -> Apllication Layer
 now the difference btw docker and virtual machine is that docker uses Host OS kernel and only virtualize Apllication Layer that's why docker have less control on machine as well as its lighweight while on the other hand virtual machines vitualize both Host OS kernel as well as application layer.
 Virtual machines are compatible with all OS while docker was intially built for only linux systems only.
 
-development with docker.
 
+development with docker.
 
 Docker Network
 docker network ls
@@ -65,3 +65,42 @@ docker run -d \
 > -e ME_CONFIG_MONGODB_ADMINPASSWORD=qwerty \
 > -e ME_CONFIG_MONGODB_URL="mongodb://admin:qwerty@mongo:27017" \
 > mongo-express
+
+
+Docker Compose
+.yaml file we can write all commands here in a .yaml file and instead of running the container from terminal we will be runnig it from this file yaml(yet another markup language)
+
+it's basically a toll for defining and running multi-container appliactions.
+
+commands:
+docker compose -f fileName.yaml up -d //containers created and run in detach mode
+docker compose -f fileName.yaml down //delete all conatiners 
+
+In yaml file we do not write network it by default creats a differentnetwork and run all conatiners in same Network
+
+Dockerizing our app.
+testapp => docker image => container
+conversion of an app in running docker conatiner is known as dockerizing our app.
+and this containes can be shared with our teammeats.
+Dockerfile- Blueprint how to dockerize our application.
+
+Most common Instrucruions of dockerfile 
+
+FROM base_image(node image for tsetapp)
+WORKDIR working directory
+COPY copy from host to image
+RUN used to run instructioms ex: run pip install...
+CMD similar to RUN command this instruction sets the default a container using this image will run. for example we use node server.js to run our testapp this same will be the CMD command for our testapp.
+EXPOSE used to expose any port of image
+ENV we cna define our own environment varibales
+
+Example:-
+FROM node
+# testapp => node => debian layers of our image
+ENV MONGO_DB_USERNAME=admin \
+    MONGO_DB_PASSWORD=qwerty
+RUN mkdir -p testapp
+COPY . /testapp
+CMD ["node", "/testapp/server.js"]
+
+command to rub this file :- docker build -t testapp:1.0 .   '-t stands dor tag the image built its tag will be 1.0

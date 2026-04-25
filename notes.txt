@@ -36,4 +36,10 @@ A same port of host machine cannot be binded to different conatiners ports.
 Troublrshoot command
 1. docker logs cont_name
 2. docker exec -it cont_id /bin/bash or cont_id /bin/sh
-45:26
+
+Difference btw docker and virtual machine
+every machine have 3 layers hardware -> host OS (kernel) -> Apllication Layer 
+now the difference btw docker and virtual machine is that docker uses Host OS kernel and only virtualize Apllication Layer that's why docker have less control on machine as well as its lighweight while on the other hand virtual machines vitualize both Host OS kernel as well as application layer.
+Virtual machines are compatible with all OS while docker was intially built for only linux systems only.
+
+development with docker.

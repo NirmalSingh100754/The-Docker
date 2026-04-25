@@ -43,3 +43,16 @@ now the difference btw docker and virtual machine is that docker uses Host OS ke
 Virtual machines are compatible with all OS while docker was intially built for only linux systems only.
 
 development with docker.
+
+
+Docker Network
+docker network ls
+docker network create NETWORK_NAME
+
+docker run -d \
+> -p27017:27017 \
+> --name mongo \
+> --network mongo-network \
+> -e MONGO_INITDB_ROOT_USERNAME=admin \
+> -e MONGO_INITDB_ROOT_PASSWORD=qwerty \
+> mongo

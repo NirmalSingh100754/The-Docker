@@ -104,3 +104,9 @@ COPY . /testapp
 CMD ["node", "/testapp/server.js"]
 
 command to rub this file :- docker build -t testapp:1.0 .   '-t stands dor tag the image built its tag will be 1.0
+
+Publishing Images
+docker push image_name:tag
+
+Docker volumes
+Volumes in docker are persistant data stores for containers.
